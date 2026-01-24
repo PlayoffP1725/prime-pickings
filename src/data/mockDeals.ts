@@ -1,7 +1,7 @@
 import { Deal } from '@/types/deal';
 
 // Replace 'YOUR_AFFILIATE_TAG' with your actual Amazon Associates tag
-const AFFILIATE_TAG = 'YOUR_AFFILIATE_TAG';
+const AFFILIATE_TAG = 'primepicki014-20';
 
 // Helper to create affiliate URLs
 const createAffiliateUrl = (asin: string) =>
