@@ -45,7 +45,7 @@ export default function DealCard({ deal }: DealCardProps) {
             alt={deal.title}
             fill
             className="object-contain p-4"
-            unoptimized // Remove this when using real images
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
         </div>
       </div>
