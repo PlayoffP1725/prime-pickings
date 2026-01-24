@@ -26,7 +26,12 @@ export default function DealCard({ deal }: DealCardProps) {
   const badge = getDealBadge();
 
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
+    <a
+      href={deal.affiliateUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col cursor-pointer hover:-translate-y-1"
+    >
       {/* Badge */}
       <div className="relative">
         <span className={`absolute top-3 left-3 ${badge.color} text-white text-xs font-bold px-2 py-1 rounded-full z-10`}>
@@ -101,15 +106,10 @@ export default function DealCard({ deal }: DealCardProps) {
         </div>
 
         {/* CTA Button */}
-        <a
-          href={deal.affiliateUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-bold py-2 px-4 rounded-lg text-center hover:from-yellow-500 hover:to-orange-600 transition-all duration-200 shadow-md hover:shadow-lg"
-        >
+        <span className="mt-4 w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-bold py-2 px-4 rounded-lg text-center hover:from-yellow-500 hover:to-orange-600 transition-all duration-200 shadow-md hover:shadow-lg">
           View Deal
-        </a>
+        </span>
       </div>
-    </div>
+    </a>
   );
 }
