@@ -22,11 +22,11 @@ function SearchResults() {
             &larr; Back to all deals
           </Link>
         </nav>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <h1 className="text-3xl font-bold text-gray-700 mb-2">
           Search Results
         </h1>
         {query && (
-          <p className="text-gray-600">
+          <p className="text-gray-500">
             {results.length} {results.length === 1 ? 'result' : 'results'} for{' '}
             <span className="font-semibold text-gray-900">&quot;{query}&quot;</span>
           </p>
@@ -103,7 +103,7 @@ function SearchResults() {
 
       {/* Search Tips */}
       <div className="mt-12 bg-gray-100 rounded-xl p-6">
-        <h2 className="text-lg font-bold text-gray-900 mb-3">Search Tips</h2>
+        <h2 className="text-lg font-bold text-gray-700 mb-3">Search Tips</h2>
         <ul className="space-y-2 text-gray-600">
           <li className="flex items-start gap-2">
             <span className="text-purple-600">•</span>

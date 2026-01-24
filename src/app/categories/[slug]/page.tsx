@@ -59,11 +59,11 @@ export default function CategoryPage() {
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
           <span className="text-4xl">{category.emoji}</span>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-700">
             {category.name}
           </h1>
         </div>
-        <p className="text-gray-600">
+        <p className="text-gray-500">
           {filteredDeals.length} {filteredDeals.length === 1 ? 'deal' : 'deals'}{' '}
           available
         </p>
@@ -126,7 +126,7 @@ export default function CategoryPage() {
 
       {/* Related Categories */}
       <div className="mt-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">
+        <h2 className="text-xl font-bold text-gray-700 mb-4">
           Explore Other Categories
         </h2>
         <div className="flex flex-wrap gap-3">

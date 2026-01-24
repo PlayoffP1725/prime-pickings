@@ -31,10 +31,10 @@ export default function CategoriesPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Section */}
       <div className="text-center mb-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-700 mb-4">
           Browse by Category
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-500 max-w-2xl mx-auto">
           Find the best deals organized by category. Click any category to see
           all available discounts.
         </p>

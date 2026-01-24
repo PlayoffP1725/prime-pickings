@@ -25,10 +25,10 @@ export default function LightningDealsPage() {
           </svg>
           <span className="font-semibold">Limited Time Only</span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-700 mb-4">
           Lightning Deals
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-500 max-w-2xl mx-auto">
           These deals won&apos;t last long! Grab them before they&apos;re gone.
           New lightning deals added throughout the day.
         </p>
@@ -84,7 +84,7 @@ export default function LightningDealsPage() {
 
       {/* Info Section */}
       <div className="mt-12 bg-gray-100 rounded-xl p-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">
+        <h2 className="text-xl font-bold text-gray-700 mb-4">
           How Lightning Deals Work
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
