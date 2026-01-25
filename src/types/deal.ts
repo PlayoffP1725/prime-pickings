@@ -23,4 +23,5 @@ export type DealCategory =
   | 'toys'
   | 'sports'
   | 'grocery'
+  | 'health'
   | 'all';

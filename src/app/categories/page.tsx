@@ -25,6 +25,7 @@ export default function CategoriesPage() {
     toys: 'from-green-500 to-emerald-600',
     sports: 'from-red-500 to-rose-600',
     grocery: 'from-lime-500 to-green-600',
+    health: 'from-teal-500 to-cyan-600',
   };
 
   return (
