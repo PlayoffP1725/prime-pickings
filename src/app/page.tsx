@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import DealCard from '@/components/DealCard';
 import CategoryFilter from '@/components/CategoryFilter';
+import NewsletterBanner from '@/components/NewsletterBanner';
 import { mockDeals } from '@/data/mockDeals';
 import { DealCategory } from '@/types/deal';
 
@@ -60,6 +61,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Newsletter Signup Banner */}
+      <NewsletterBanner />
 
       {/* Deals Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
