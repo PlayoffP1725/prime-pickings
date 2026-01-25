@@ -20,8 +20,5 @@ export type DealCategory =
   | 'home'
   | 'fashion'
   | 'beauty'
-  | 'toys'
-  | 'sports'
-  | 'grocery'
   | 'health'
   | 'all';

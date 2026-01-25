@@ -22,9 +22,6 @@ export default function CategoriesPage() {
     home: 'from-amber-500 to-orange-600',
     fashion: 'from-pink-500 to-rose-600',
     beauty: 'from-purple-500 to-violet-600',
-    toys: 'from-green-500 to-emerald-600',
-    sports: 'from-red-500 to-rose-600',
-    grocery: 'from-lime-500 to-green-600',
     health: 'from-teal-500 to-cyan-600',
   };
 
