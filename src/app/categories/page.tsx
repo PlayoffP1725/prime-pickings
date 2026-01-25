@@ -18,6 +18,7 @@ export default function CategoriesPage() {
   };
 
   const categoryColors: Record<string, string> = {
+    haul: 'from-yellow-500 to-amber-600',
     electronics: 'from-blue-500 to-indigo-600',
     home: 'from-amber-500 to-orange-600',
     fashion: 'from-pink-500 to-rose-600',

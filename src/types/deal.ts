@@ -21,4 +21,5 @@ export type DealCategory =
   | 'fashion'
   | 'beauty'
   | 'health'
+  | 'haul'
   | 'all';
