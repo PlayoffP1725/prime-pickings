@@ -1,0 +1,58 @@
+<svg width="1500" height="500" viewBox="0 0 1500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bannerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED"/>
+      <stop offset="50%" style="stop-color:#6366F1"/>
+      <stop offset="100%" style="stop-color:#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="tagGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FACC15"/>
+      <stop offset="100%" style="stop-color:#F97316"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1500" height="500" fill="url(#bannerBg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="100" cy="50" r="150" fill="white" fill-opacity="0.05"/>
+  <circle cx="1400" cy="450" r="200" fill="white" fill-opacity="0.05"/>
+  <circle cx="750" cy="500" r="300" fill="white" fill-opacity="0.03"/>
+
+  <!-- Floating price tags decoration -->
+  <g transform="translate(100, 150) rotate(-15)">
+    <path d="M0 0L40 0L40 30L20 50L0 30Z" fill="url(#tagGradient)" opacity="0.6"/>
+  </g>
+  <g transform="translate(1350, 100) rotate(20)">
+    <path d="M0 0L50 0L50 35L25 60L0 35Z" fill="url(#tagGradient)" opacity="0.5"/>
+  </g>
+  <g transform="translate(1250, 350) rotate(-10)">
+    <path d="M0 0L35 0L35 25L17 45L0 25Z" fill="url(#tagGradient)" opacity="0.4"/>
+  </g>
+
+  <!-- Main content -->
+  <text x="750" y="200" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="72" font-weight="900" fill="white">PrimePickings</text>
+
+  <text x="750" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="white" fill-opacity="0.9">Daily Deals Up To 60% Off</text>
+
+  <!-- CTA Banner -->
+  <rect x="550" y="320" width="400" height="60" rx="30" fill="url(#tagGradient)"/>
+  <text x="750" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1a1a2e">primepickings.co</text>
+
+  <!-- Icons row -->
+  <g transform="translate(580, 420)" fill="white" fill-opacity="0.7">
+    <text font-family="Arial, sans-serif" font-size="18">Electronics</text>
+  </g>
+  <text x="680" y="438" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">|</text>
+  <g transform="translate(700, 420)" fill="white" fill-opacity="0.7">
+    <text font-family="Arial, sans-serif" font-size="18">Home</text>
+  </g>
+  <text x="760" y="438" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">|</text>
+  <g transform="translate(780, 420)" fill="white" fill-opacity="0.7">
+    <text font-family="Arial, sans-serif" font-size="18">Beauty</text>
+  </g>
+  <text x="850" y="438" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">|</text>
+  <g transform="translate(870, 420)" fill="white" fill-opacity="0.7">
+    <text font-family="Arial, sans-serif" font-size="18">Fashion</text>
+  </g>
+</svg>
