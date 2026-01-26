@@ -24,6 +24,8 @@ export default function CategoriesPage() {
     fashion: 'from-pink-500 to-rose-600',
     beauty: 'from-purple-500 to-violet-600',
     health: 'from-teal-500 to-cyan-600',
+    baby: 'from-sky-400 to-blue-500',
+    tools: 'from-slate-500 to-zinc-700',
   };
 
   return (

@@ -22,4 +22,6 @@ export type DealCategory =
   | 'beauty'
   | 'health'
   | 'haul'
+  | 'baby'
+  | 'tools'
   | 'all';
