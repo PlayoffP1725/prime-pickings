@@ -24,4 +24,6 @@ export type DealCategory =
   | 'haul'
   | 'baby'
   | 'tools'
+  | 'luxury'
+  | 'adventure'
   | 'all';

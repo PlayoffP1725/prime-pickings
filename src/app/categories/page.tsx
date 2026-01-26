@@ -26,6 +26,8 @@ export default function CategoriesPage() {
     health: 'from-teal-500 to-cyan-600',
     baby: 'from-sky-400 to-blue-500',
     tools: 'from-slate-500 to-zinc-700',
+    luxury: 'from-rose-400 to-fuchsia-600',
+    adventure: 'from-emerald-500 to-green-700',
   };
 
   return (
