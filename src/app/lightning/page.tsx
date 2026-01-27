@@ -1,11 +1,15 @@
 'use client';
 
-import { mockDeals } from '@/data/mockDeals';
+import { useState } from 'react';
+import { mockDeals, sortDeals, SortOption } from '@/data/mockDeals';
 import DealCard from '@/components/DealCard';
 import CountdownTimer from '@/components/CountdownTimer';
+import SortDropdown from '@/components/SortDropdown';
 
 export default function LightningDealsPage() {
+  const [sortBy, setSortBy] = useState<SortOption>('featured');
   const lightningDeals = mockDeals.filter((deal) => deal.dealType === 'lightning');
+  const sortedDeals = sortDeals(lightningDeals, sortBy);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -35,19 +39,27 @@ export default function LightningDealsPage() {
       </div>
 
       {/* Active Countdown Banner */}
-      {lightningDeals.length > 0 && lightningDeals[0].expiresAt && (
+      {sortedDeals.length > 0 && sortedDeals[0].expiresAt && (
         <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-6 mb-8 text-white text-center">
           <p className="text-sm uppercase tracking-wide mb-2">Next Deal Expires In</p>
           <div className="text-3xl font-bold">
-            <CountdownTimer expiresAt={lightningDeals[0].expiresAt} />
+            <CountdownTimer expiresAt={sortedDeals[0].expiresAt} />
           </div>
         </div>
       )}
 
+      {/* Sort Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <p className="text-sm text-gray-600">
+          Showing {sortedDeals.length} {sortedDeals.length === 1 ? 'deal' : 'deals'}
+        </p>
+        <SortDropdown currentSort={sortBy} onSortChange={setSortBy} />
+      </div>
+
       {/* Deals Grid */}
-      {lightningDeals.length > 0 ? (
+      {sortedDeals.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {lightningDeals.map((deal) => (
+          {sortedDeals.map((deal) => (
             <div key={deal.id} className="relative">
               {deal.expiresAt && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20 bg-white rounded-full px-3 py-1 shadow-md">

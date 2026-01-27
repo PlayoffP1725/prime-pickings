@@ -1,17 +1,21 @@
 'use client';
 
+import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { mockDeals, categories } from '@/data/mockDeals';
+import { mockDeals, categories, sortDeals, SortOption } from '@/data/mockDeals';
 import DealCard from '@/components/DealCard';
+import SortDropdown from '@/components/SortDropdown';
 import { getCategoryName } from '@/lib/utils';
 
 export default function CategoryPage() {
   const params = useParams();
   const slug = params.slug as string;
+  const [sortBy, setSortBy] = useState<SortOption>('featured');
 
   const category = categories.find((c) => c.id === slug);
   const filteredDeals = mockDeals.filter((deal) => deal.category === slug);
+  const sortedDeals = sortDeals(filteredDeals, sortBy);
 
   if (!category) {
     return (
@@ -70,27 +74,17 @@ export default function CategoryPage() {
       </div>
 
       {/* Sort/Filter Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 p-4 bg-white rounded-lg shadow-sm">
-        <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-500">Sort by:</span>
-          <select className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
-            <option value="discount">Biggest Discount</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="rating">Highest Rated</option>
-          </select>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500">
-            Showing {filteredDeals.length} results
-          </span>
-        </div>
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <p className="text-sm text-gray-600">
+          Showing {sortedDeals.length} {sortedDeals.length === 1 ? 'deal' : 'deals'}
+        </p>
+        <SortDropdown currentSort={sortBy} onSortChange={setSortBy} />
       </div>
 
       {/* Deals Grid */}
-      {filteredDeals.length > 0 ? (
+      {sortedDeals.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredDeals.map((deal) => (
+          {sortedDeals.map((deal) => (
             <DealCard key={deal.id} deal={deal} />
           ))}
         </div>

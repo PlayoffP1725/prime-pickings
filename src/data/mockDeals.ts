@@ -1561,7 +1561,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 130.00,
     salePrice: 104.00,
     discountPercentage: 20,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B08DHQCGH9'),
     rating: 4.6,
     reviewCount: 34567,
@@ -1576,7 +1576,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 30.00,
     salePrice: 24.00,
     discountPercentage: 20,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B00SNM5US4'),
     rating: 4.5,
     reviewCount: 89012,
@@ -1591,7 +1591,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 30.00,
     salePrice: 24.00,
     discountPercentage: 20,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B07D37SBHF'),
     rating: 4.6,
     reviewCount: 67890,
@@ -1606,7 +1606,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 85.00,
     salePrice: 68.00,
     discountPercentage: 20,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B00O5XWTNE'),
     rating: 4.3,
     reviewCount: 23456,
@@ -1621,7 +1621,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 45.00,
     salePrice: 28.00,
     discountPercentage: 38,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B09C8VNWBP'),
     rating: 4.4,
     reviewCount: 45678,
@@ -1637,7 +1637,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 42.00,
     salePrice: 27.00,
     discountPercentage: 36,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B0B5BZMBHP'),
     rating: 4.5,
     reviewCount: 34567,
@@ -1652,7 +1652,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 200.00,
     salePrice: 139.99,
     discountPercentage: 30,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B0BKJCNM9G'),
     rating: 4.5,
     reviewCount: 12345,
@@ -1667,7 +1667,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 115.00,
     salePrice: 89.00,
     discountPercentage: 23,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B009APOVNC'),
     rating: 4.7,
     reviewCount: 56789,
@@ -1682,7 +1682,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 80.00,
     salePrice: 64.00,
     discountPercentage: 20,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B0CQGW6F5S'),
     rating: 4.4,
     reviewCount: 18901,
@@ -1697,7 +1697,7 @@ export const mockDeals: Deal[] = [
     originalPrice: 65.00,
     salePrice: 44.99,
     discountPercentage: 31,
-    category: 'luxury',
+    category: 'beauty',
     affiliateUrl: createAffiliateUrl('B07H4KT6JS'),
     rating: 4.6,
     reviewCount: 78901,
@@ -1865,10 +1865,40 @@ export const categories = [
   { id: 'electronics', name: 'Electronics', emoji: '📱' },
   { id: 'health', name: 'Health & Supplements', emoji: '💊' },
   { id: 'home', name: 'Home & Essentials', emoji: '🏠' },
-  { id: 'beauty', name: 'Beauty', emoji: '💄' },
+  { id: 'beauty', name: 'Beauty & Luxury', emoji: '💄' },
   { id: 'fashion', name: 'Fashion', emoji: '👕' },
   { id: 'baby', name: 'Baby Clothes', emoji: '👶' },
   { id: 'tools', name: 'Tools & Woodworking', emoji: '🪚' },
-  { id: 'luxury', name: 'Luxury Beauty', emoji: '✨' },
   { id: 'adventure', name: 'Explore & Adventure', emoji: '🏕️' },
 ];
+
+// Sort options for deals
+export type SortOption = 'featured' | 'price-low' | 'price-high' | 'discount' | 'rating' | 'newest';
+
+export const sortOptions = [
+  { id: 'featured', name: 'Featured' },
+  { id: 'price-low', name: 'Price: Low to High' },
+  { id: 'price-high', name: 'Price: High to Low' },
+  { id: 'discount', name: 'Biggest Discount' },
+  { id: 'rating', name: 'Highest Rated' },
+  { id: 'newest', name: 'Newest First' },
+];
+
+export const sortDeals = (deals: Deal[], sortBy: SortOption): Deal[] => {
+  const sorted = [...deals];
+  switch (sortBy) {
+    case 'price-low':
+      return sorted.sort((a, b) => a.salePrice - b.salePrice);
+    case 'price-high':
+      return sorted.sort((a, b) => b.salePrice - a.salePrice);
+    case 'discount':
+      return sorted.sort((a, b) => b.discountPercentage - a.discountPercentage);
+    case 'rating':
+      return sorted.sort((a, b) => b.rating - a.rating);
+    case 'newest':
+      return sorted.sort((a, b) => parseInt(b.id) - parseInt(a.id));
+    case 'featured':
+    default:
+      return sorted;
+  }
+};

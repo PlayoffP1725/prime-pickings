@@ -1,17 +1,21 @@
 'use client';
 
+import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { mockDeals } from '@/data/mockDeals';
+import { mockDeals, sortDeals, SortOption } from '@/data/mockDeals';
 import DealCard from '@/components/DealCard';
+import SortDropdown from '@/components/SortDropdown';
 import { searchDeals } from '@/lib/utils';
 import { Suspense } from 'react';
 
 function SearchResults() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
+  const [sortBy, setSortBy] = useState<SortOption>('featured');
 
   const results = searchDeals(mockDeals, query);
+  const sortedResults = sortDeals(results, sortBy);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -56,12 +60,21 @@ function SearchResults() {
             Use the search bar above to find deals.
           </p>
         </div>
-      ) : results.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {results.map((deal) => (
-            <DealCard key={deal.id} deal={deal} />
-          ))}
-        </div>
+      ) : sortedResults.length > 0 ? (
+        <>
+          {/* Sort Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <p className="text-sm text-gray-600">
+              Showing {sortedResults.length} {sortedResults.length === 1 ? 'result' : 'results'}
+            </p>
+            <SortDropdown currentSort={sortBy} onSortChange={setSortBy} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {sortedResults.map((deal) => (
+              <DealCard key={deal.id} deal={deal} />
+            ))}
+          </div>
+        </>
       ) : (
         <div className="text-center py-12 bg-white rounded-xl shadow">
           <svg

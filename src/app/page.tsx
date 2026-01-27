@@ -3,17 +3,21 @@
 import { useState } from 'react';
 import DealCard from '@/components/DealCard';
 import CategoryFilter from '@/components/CategoryFilter';
+import SortDropdown from '@/components/SortDropdown';
 import NewsletterBanner from '@/components/NewsletterBanner';
-import { mockDeals } from '@/data/mockDeals';
+import { mockDeals, sortDeals, SortOption } from '@/data/mockDeals';
 import { DealCategory } from '@/types/deal';
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<DealCategory>('all');
+  const [sortBy, setSortBy] = useState<SortOption>('featured');
 
   const filteredDeals =
     selectedCategory === 'all'
       ? mockDeals
       : mockDeals.filter((deal) => deal.category === selectedCategory);
+
+  const sortedDeals = sortDeals(filteredDeals, sortBy);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -29,7 +33,7 @@ export default function Home() {
       </div>
 
       {/* Category Filter */}
-      <div className="mb-8">
+      <div className="mb-6">
         <CategoryFilter
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
@@ -65,15 +69,23 @@ export default function Home() {
       {/* Newsletter Signup Banner */}
       <NewsletterBanner />
 
+      {/* Sort and Results count */}
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <p className="text-sm text-gray-600">
+          Showing {sortedDeals.length} {sortedDeals.length === 1 ? 'deal' : 'deals'}
+        </p>
+        <SortDropdown currentSort={sortBy} onSortChange={setSortBy} />
+      </div>
+
       {/* Deals Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {filteredDeals.map((deal) => (
+        {sortedDeals.map((deal) => (
           <DealCard key={deal.id} deal={deal} />
         ))}
       </div>
 
       {/* Empty State */}
-      {filteredDeals.length === 0 && (
+      {sortedDeals.length === 0 && (
         <div className="text-center py-12">
           <p className="text-gray-500 text-lg">
             No deals found in this category. Check back soon!
