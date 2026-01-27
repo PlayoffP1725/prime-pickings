@@ -1,9 +1,23 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 
 export default function DarkModeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="p-2 w-9 h-9 rounded-lg bg-white/10">
+        {/* Placeholder to prevent layout shift */}
+      </div>
+    );
+  }
 
   return (
     <button
