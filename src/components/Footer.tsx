@@ -99,17 +99,14 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-gray-800">
           <div className="flex flex-wrap justify-center md:justify-start space-x-6 text-sm mb-4 md:mb-0">
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="/about" className="hover:text-white transition-colors">
               About
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="/privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="/terms" className="hover:text-white transition-colors">
               Terms of Service
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Contact
             </a>
           </div>
           <p className="text-xs">
