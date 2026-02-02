@@ -1,0 +1,39 @@
+{
+  "instructions": "Fill in the deals below. I'll add them to the site when you're ready.",
+  "deals": [
+    {
+      "title": "Product Name Here",
+      "description": "Brief description of the product",
+      "amazonUrl": "https://www.amazon.com/dp/ASIN_HERE",
+      "imageUrl": "https://m.media-amazon.com/images/I/IMAGE_ID_HERE.jpg",
+      "originalPrice": 99.99,
+      "salePrice": 49.99,
+      "category": "electronics",
+      "dealType": "sale",
+      "rating": 4.5,
+      "reviewCount": 1000
+    }
+  ],
+  "categoryOptions": [
+    "haul (budget deals under $20)",
+    "electronics",
+    "home",
+    "fashion",
+    "beauty",
+    "health",
+    "baby",
+    "tools",
+    "adventure"
+  ],
+  "dealTypeOptions": [
+    "sale (regular discount)",
+    "lightning (time-limited)",
+    "daily (deal of the day)",
+    "coupon (coupon clipped)"
+  ],
+  "tips": {
+    "amazonUrl": "Copy the product URL from Amazon - I'll extract the ASIN",
+    "imageUrl": "Right-click the main product image on Amazon and copy image address",
+    "discountPercentage": "I'll calculate this automatically from the prices"
+  }
+}
