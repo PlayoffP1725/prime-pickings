@@ -108,6 +108,9 @@ export default function Footer() {
             <a href="/terms" className="hover:text-white transition-colors">
               Terms of Service
             </a>
+            <a href="/contact" className="hover:text-white transition-colors">
+              Contact
+            </a>
           </div>
           <p className="text-xs">
             &copy; {new Date().getFullYear()} PrimePickings. All rights reserved.
